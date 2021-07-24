@@ -5,7 +5,7 @@ metadata:
 spec:
   replicas: 3
   selector:
-    app: hello-world
+    app: hello-pod
   template:
     metadata:
       labels:
