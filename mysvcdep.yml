@@ -1,16 +1,21 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: myjavaapp-svc
+  name: myjavaapp-deploy
   labels:
-    app: myjavaapp
+     app: myjavaapp
 spec:
-  type: NodePort
-  ports:
-  - port: 8080
-    nodePort: 30001
-    protocol: TCP
+  replicas: 3
   selector:
-    app: myjavaapp
-    
-    
+    matchLabels:
+       app: myjavaapp
+  template:
+    metadata:
+       labels:
+        app: myjavaapp
+    spec:
+      containers:
+      - name: myjavaapp-container
+        image: maha4iac/mahaonlinestore:1
+        ports:
+        - containerPort: 8080
