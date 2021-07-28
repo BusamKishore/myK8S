@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myjavaapp-deploy
-  labels:
+  label:
     app: myjavaapp
 spec:
   replicas: 3
@@ -15,9 +15,11 @@ spec:
         app: myjavaapp
     spec:
       containers:
-        - name: myjavaapp-container
-          image: maha4iac/mahaonlinestore:1
-          ports:
-            - containerPort: 8080
-
-      
+      - name: myjavaapp-container
+        image: maha4iac/mahaonlinestore:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
