@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myjavaapp-deploy
+  name: myapp-deploy
   labels:
      app: myjavaapp
 spec:
@@ -16,5 +16,4 @@ spec:
   containers:
       - name: myjavaapp-container
         image: maha4iac/mahaonlinestore:2
-        ports:
-        - containerPort: 80
+        
