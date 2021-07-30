@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: hello-world
   annotations:
-    networking.k8s.io/v1 Ingress: ingress-nginx
+    networking.k8s.io/v1 : ingress-nginx
 spec:
   rules:
   - host: host1.domain.ext
